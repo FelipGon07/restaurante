@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Sale</title>
+    <!-- link de sitio SweetAlert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="./css/ejercicio.css">
+</head>
+<body>
+<center>
+    <img src="https://marketplace.canva.com/EAF8OQTDry0/1/0/1600w/canva-logo-restaurante-circular-blanco-y-negro-yoLE4F7rTeQ.jpg" alt="Logo Restaurante" height="500" width="800">
+    <h1>FACTURA DE VENTAS - PEDIDOS</h1>
+    <!-- sección de formulario con controles -->
+    <form action="" method="post">
+    <table> 
+        <caption>PEDIDOS</caption>
+        <tr>
+            <th>NOMBRE DEL CLIENTE</th>
+            <td><input type="text" name="nombre" size="20"></td>
+            <th>TIPO DOCUMENTO</th>
+            <td>
+                <select name="tipodoc" id="tp">
+                    <option value="CC">CC</option>
+                    <option value="CE">CE</option>
+                    <option value="NIT">NIT</option>
+                </select>
+            </td>
+            <th>No. Documento</th>
+            <td><input type="text" name="ndoc" size="25"></td>
+        </tr>
+        <tr>
+            <th>DIRECCIÓN</th>
+            <td><input type="text" name="dir" size="20"></td>
+            <th>TELEFONO</th>
+            <td><input type="text" name="tel" size="20"></td>
+            <th>VENDEDOR</th>
+            <td><input type="text" name="vend" size="20"></td>
+        </tr>
+        
+        <!-- Sección detalle de pedido -->
+        <tr>
+            <th>REFERENCIA</th>
+            <th colspan="2">DESCRIPCIÓN</th>
+            <th>CANTIDAD</th>
+            <th>VALOR UNITARIO</th>
+            <th>SUBTOTAL</th>
+        </tr>
+        
+        <!-- Sección de selección de comidas a pedir -->
+        <tr>
+            <th>
+                <select name="" id="prod1" onchange="mostrar()">
+                    <option>Seleccionar:</option>
+                    <option value="25000">Combo hamburguesa</option>
+                    <option value="20000">Combo perro caliente</option>
+                    <option value="35000">Combo pizza</option>
+                </select>
+            </th>
+            <td colspan="2"><input type="text" name="" id="desc01" size="40"></td>
+            <td><input type="number" name="" id="cant01" size="10"></td>
+            <td><input type="number" name="" id="vau01" size="15" disabled></td>
+            <td><input type="text" name="" id="vat01" size="15" disabled></td>
+        </tr>
+        <tr>
+            <th>
+                <select name="" id="prod2" onchange="mostrar()">
+                    <option>Seleccionar:</option>
+                    <option value="25000">Combo hamburguesa</option>
+                    <option value="20000">Combo perro caliente</option>
+                    <option value="35000">Combo pizza</option>
+                </select>
+            </th>
+            <td colspan="2"><input type="text" name="" id="desc02" size="40"></td>
+            <td><input type="number" name="" id="cant02" size="10"></td>
+            <td><input type="number" name="" id="vau02" size="15" disabled></td>
+            <td><input type="text" name="" id="vat02" size="15" disabled></td>
+        </tr>
+        <tr>
+            <th>
+                <select name="" id="prod3" onchange="mostrar()">
+                    <option>Seleccionar:</option>
+                    <option value="25000">Combo hamburguesa</option>
+                    <option value="20000">Combo perro caliente</option>
+                    <option value="35000">Combo pizza</option>
+                </select>
+            </th>
+            <td colspan="2"><input type="text" name="" id="desc03" size="40"></td>
+            <td><input type="number" name="" id="cant03" size="10"></td>
+            <td><input type="number" name="" id="vau03" size="15" disabled></td>
+            <td><input type="text" name="" id="vat03" size="15" disabled></td>
+        </tr>
+        
+        <!-- Sección de adicionales -->  
+        <tr>  
+            <th colspan="6">ADICIONALES</th>  
+        </tr>  
+        <tr>  
+            <td colspan="2">
+                <input type="checkbox" name="adic" id="checkbox1">
+                <img src="https://licoreslarebaja.com/155-large_default/cerveza-budweiser-lata-x-6un.jpg" alt="Cerveza" width="50">
+                Cerveza en lata
+            </td>  
+            <td colspan="2">
+                <input type="checkbox" name="adic" id="checkbox2">
+                <img src="https://img.freepik.com/vector-gratis/ilustracion-icono-dibujos-animados-cono-helado-concepto-icono-comida-dulce-aislado-estilo-dibujos-animados-plana_138676-2924.jpg" alt="Helado" width="50">
+                Helado sundae
+            </td>  
+            <td colspan="2">
+                <input type="checkbox" name="adic" id="checkbox3">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuUCqzlO8erHJ9HJjDH-xjlYQ9ux2EjvKATQ&s" alt="Jugo" width="50">
+                Jugo HIT
+            </td>  
+        </tr>  
+        <tr>  
+            <th colspan="4">TOTAL DE ADICIONALES</th>  
+            <td colspan="2"><input type="text" name="" id="adic0" disabled></td>  
+        </tr>
+        
+        <!-- Sección de liquidación de la factura -->
+        <tr>
+            <th colspan="2"> FORMA DE PAGO</th>
+            <td colspan="2">
+                <input type="radio" name="fp" id="radio1"> Efectivo <br>
+                <input type="radio" name="fp" id="radio2"> Nequi <br>
+                <input type="radio" name="fp" id="radio3"> Tarjetas
+            </td>
+            <th>SUBTOTAL</th>
+            <td><input type="text" name="" id="subt" size="25" disabled></td>
+        </tr>
+        <tr>
+            <td colspan="4" rowspan="2">OBSERVACIONES: Revise su pedido al entregarlo y gracias por su compra</td>
+            <th>IVA</th>
+            <td><input type="text" name="" id="iva" size="25" disabled></td>
+        </tr>
+        <tr>
+            <th>DESCUENTO</th>
+            <td><input type="text" name="" id="desc" size="25" disabled></td>
+        </tr>
+        <tr>
+            <th colspan="4"></th>
+            <th>NETO</th>
+            <td><input type="text" name="" id="neto" size="25" disabled></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" value="CALCULAR PAGO" onclick="mostrar()"></td>
+            <td colspan="2"><input type="reset" value="BORRAR"></td>
+            <td colspan="2"><input type="button" value="ENVIAR" onclick="enviar()"></td>
+        </tr>
+    </table>
+    </form>
+</center>
+
+<script>
+// Aquí iría el código JavaScript que te proporcioné anteriormente
+</script>
+
+</body>
+</html>
